@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registartion Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/Styleregister.css">
+    <script type="text/javascript" src="validate.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>REGISTRATION FORM</h2>
+        </div>
+        <form class="form" id="form">
+            <div class="form-control">
+                <label>Username</label>
+                <input type="text" name="" id="username" placeholder="Enter your fullname" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Msg</small>
+            </div>
+            <div class="form-control">
+                <label>Email</label>
+                <input type="Email" name="" id="email" placeholder="Enter your Email" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Msg</small>
+            </div>
+            <div class="form-control">
+                <label>Phone Number</label>
+                <input type="text" name="" id="phone" placeholder="Enter your Phone Number" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Msg</small>
+            </div>
+            
+            <div class="form-control">
+                <label>Password</label>
+                <input type="password" name="" id="password" placeholder="Enter your Password" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Msg</small>
+            </div>
+            <div class="form-control">
+                <label> Confirm Password</label>
+                <input type="password" name="" id="cpassword" placeholder="Enter your Password Again" autocomplete="off">
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-exclamation-circle"></i>
+                <small>Error Msg</small>
+            </div>
+            <input type="submit" value="submit" class="btn" name="">
+
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById('form');
+        const username = document.getElementById('username');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const password = document.getElementById('password');
+        const cpassword = document.getElementById('cpassword');
+
+        //add event
+        form.addEventListener('submit',(event)=>{
+            event.preventDefault();
+            validate();
+        })
+        //define validate function
+        const validate=()=>{
+            const usernameval= username.value.trim();
+            const emailval= email.value.trim();
+            const phoneval= phone.value.trim();
+            const passwordval= password.value.trim();
+            const cpasswordval= cpassword.value.trim();
+        }
+        const isEmail=(emailval) =>{
+            var atSymbol =emailval.indexOf("@");
+            if(atSymbol<1) return false;
+            var dot = emailval.indexOf('.');
+            if(dot)
+        }
+
+
+        //validate username
+
+        if(usernameval ===""){
+            setErrormsg(username,'username cannot be blank');
+        }
+        else if(usernameval.length<=2){
+            setErrormsg(username,'username min 3 char');
+        }
+        else if(!isNaN(usernameval)){
+            setErrormsg(username,'username should be in alphabet');
+        }
+        else{
+            setSuccesMsg(username);
+        }
+        //validate email
+        if(emailval ===""){
+            setErrormsg(email,'email cannot be blank');
+        }
+        else if(!isEmail(emailval)){
+            setErrormsg(username,'Not a valid email');
+        }
+        
+        else{
+            setSuccesMsg(email);
+        }
+        
+
+    </script>
+
+</body>
+</html>
