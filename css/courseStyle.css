@@ -141,3 +141,22 @@ img{
 .topic h3:hover{
 	color: white;
 }
+/* **********footer css******** */
+.footer{
+	display: flex;
+}
+ .last{
+	margin: 0px 0px;
+	padding: 10px 680px;
+	background: black;
+	
+}
+.last h6{
+	color: white;
+	font-size: 20px;
+	text-align: center;
+}
+.last i{
+	color: white;
+	padding: 15px 4pxpx;
+}
